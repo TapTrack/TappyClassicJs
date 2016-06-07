@@ -1,0 +1,33 @@
+{
+    "name": "tappy-classic",
+    "description": "Driver for TappyUSB devices using the Tappy Classic communication protocol",
+    "main": [
+        "dist/tappyclassic.js"
+    ],
+    "authors": [
+        "TapTrack"
+    ],
+    "license": "Apache-2.0",
+    "keywords": [
+        "TCMP",
+        "Tappy",
+        "TappyUSB",
+        "Chrome"
+    ],
+    "homepage": "",
+    "ignore": [
+        "**/.*",
+        "gulpfile.js",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "ndef": "~1.0.0"
+    },
+    "respository": {
+        "type": "git",
+        "url": "git://github.com/TapTrack/TappyClassicJs.git"
+    }
+}
