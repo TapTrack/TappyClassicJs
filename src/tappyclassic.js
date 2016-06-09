@@ -1490,7 +1490,7 @@
             ackCallback();        
         };
 
-        var callbackSet = Tappy.generateStandardCallbacks(successCb,wrappedErrorCb,wrappedAckCallback);
+        var callbackSet = Tappy.generateStandardCallbacks(successCb,wrappedErrorCb,wrappedAckCb);
         this.safeSendCommand(Tappy.CommandCodes.ADD_CONTENT, params, callbackSet);
     };
 
@@ -1741,7 +1741,7 @@
             ackCallback();        
         };
 
-        var callbackSet = Tappy.generateStandardCallbacks(successCb,errorCb,wrappedAckCallback);
+        var callbackSet = Tappy.generateStandardCallbacks(successCb,errorCb,wrappedAckCb);
         this.safeSendCommand(Tappy.CommandCodes.EMULATE_CONTENT, params, callbackSet);
     };
 
