@@ -1782,7 +1782,7 @@
                         detail: "Frame too short to contain tag code"});
                 } else {
                     var tagCode = resolvedFrame.slice(3,3+tagCodeLength);
-                    successCb(tagType,tagCode,locked);
+                    successCb(tagType,tagCode,lockout);
                 }
 
             }
@@ -1812,7 +1812,11 @@
     Tappy.prototype.sendStop = function(successCb,errorCb,ackCallback) {
         var params = new Uint8Array(0);
 
-        var callbackSet = Tappy.generateStandardCallbacks(successCb,errorCb,ackCallback);
+        var wrappedAckCb = function() {
+            successCb();
+            ackCallback();        
+        };
+        var callbackSet = Tappy.generateStandardCallbacks(successCb,errorCb,wrappedAckCb);
         this.safeSendCommand(Tappy.CommandCodes.STOP, params, callbackSet);
     };
 
