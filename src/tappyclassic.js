@@ -1527,7 +1527,7 @@
      * @param {Tappy~ackCallback} ackCallback
      */
     Tappy.prototype.addVcardContent = function (contentSlot,vcard,successCb,errorCb,ackCallback) {
-        var emptyVcard = new TappyVcard();
+        var emptyVcard = new Tappy.TappyVcard();
         var finalVcard = vcard || {};
         for (var opt in emptyVcard) {
             if (emptyVcard.hasOwnProperty(opt) && !finalVcard.hasOwnProperty(opt)) {
