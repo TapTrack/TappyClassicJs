@@ -2095,7 +2095,6 @@
      */
     TappyAutodetector.Channel.prototype.notifyListenerOfTappy = function(device) {
         var self = this;
-        self.deviceCheckedCount++;
         if(self.detector.getLatestScanId() === self.channelScanId) {
             self.detector.notifyListenerOfTappy(device);
         }
@@ -2107,10 +2106,11 @@
      */
     TappyAutodetector.Channel.prototype.deviceCheckCompleted = function() {
         var self = this;
+        self.deviceCheckedCount++;
         if(self.deviceCheckedCount === self.totalDeviceCount && 
                 self.detector.getLatestScanId() === self.channelScanId) {
-                    self.detector.cancelScan();
-                }
+            self.detector.cancelScan();
+        }
     };
 
     /**
