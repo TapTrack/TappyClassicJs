@@ -1,6 +1,6 @@
 {
     "name": "@taptrack/tappy-classic",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Driver for TappyUSB devices using the Tappy Classic communication protocol",
     "main": "dist/tappyclassic.js",
     "directories": {

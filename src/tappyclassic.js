@@ -490,18 +490,26 @@
                     this.path,
                     {bitrate: 115200},
                     function(connectionInfo) {
-                        self.connectionId = connectionInfo.connectionId;
-                        self.log("Connected with connection id "+self.connectionId);
-                        self.attachReadWrite();
-                        self.isConnecting = false;
+                        if(!chrome.runtime.lastError) {
+                            self.connectionId = connectionInfo.connectionId;
+                            self.log("Connected with connection id "+self.connectionId);
+                            self.attachReadWrite();
+                            self.isConnecting = false;
 
-                        if(typeof cb === "function") {
-                            cb();
-                        }
+                            if(typeof cb === "function") {
+                                cb();
+                            }
 
-                        if(self.disconnectImmediately) {
-                            self.log("Immediate disconnect requested");
-                            self.disconnect();
+                            if(self.disconnectImmediately) {
+                                self.log("Immediate disconnect requested");
+                                self.disconnect();
+                            }
+                        } else {
+                            self.log("Error connecting: "+chrome.runtime.lastError.message);
+                            self.isConnecting = false;
+                            if(typeof cb === "function") {
+                                cb();
+                            }
                         }
 
                     });
