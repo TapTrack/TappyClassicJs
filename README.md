@@ -1,3 +1,5 @@
+# DEPRECATED - TappyUSB Classic Models not sold anymore - refer to https://github.com/TapTrack/TappyTcmpJs for current supported SDK
+
 Driver for working with a TapTrack TappyUSB device that uses the Tappy Classic USB communication protocol
 using chrome.serial
 
